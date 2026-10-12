@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+
+[project]
+name = "firewatch-websec-agent"
+version = "5.0.0"
+description = "Scope-controlled web application security assessment platform"
+requires-python = ">=3.11"

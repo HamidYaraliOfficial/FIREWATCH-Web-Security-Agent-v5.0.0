@@ -1,0 +1,1050 @@
+{
+  "meta": {
+    "version": "5.0.0",
+    "scan_id": "2dcb3b0f-7c84-498f-9eeb-efcfa9a02bb5",
+    "target": "http://127.0.0.1:8771/",
+    "status": "completed"
+  },
+  "coverage": [
+    {
+      "phase": "scope",
+      "status": "observed",
+      "details": "Validating scope and scan policy",
+      "progress": 2.0
+    },
+    {
+      "phase": "recon",
+      "status": "observed",
+      "details": "Crawling target and building attack-surface inventory",
+      "progress": 8.0
+    },
+    {
+      "phase": "sitemap",
+      "status": "observed",
+      "details": "Discovered 0 same-scope sitemap URL candidates",
+      "progress": 7.0
+    },
+    {
+      "phase": "recon",
+      "status": "observed",
+      "details": "Discovered 5 web pages/resources",
+      "progress": 28.0
+    },
+    {
+      "phase": "input-probes",
+      "status": "observed",
+      "details": "Checking a bounded set of GET query parameters with harmless alphanumeric canaries only",
+      "progress": 34.0
+    },
+    {
+      "phase": "api",
+      "status": "observed",
+      "details": "Discovering API specifications, GraphQL endpoints and OPTIONS/CORS posture",
+      "progress": 40.0
+    },
+    {
+      "phase": "transport",
+      "status": "observed",
+      "details": "Inspecting TLS and redirect posture",
+      "progress": 58.0
+    },
+    {
+      "phase": "metadata",
+      "status": "observed",
+      "details": "Checking standard metadata and operational security endpoints",
+      "progress": 66.0
+    },
+    {
+      "phase": "finalize",
+      "status": "observed",
+      "details": "Deduplicating findings and rendering reports",
+      "progress": 90.0
+    }
+  ],
+  "coverage_catalog": [
+    {
+      "id": "FW-WEB-001..011",
+      "domain": "HTTP security headers, transport, disclosure, caching, source maps, mixed content",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A02",
+        "OWASP WSTG stable: Configuration / Information Gathering"
+      ],
+      "finding_count": 32,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-CSP-001..006",
+      "domain": "CSP policy weaknesses",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A02",
+        "OWASP WSTG stable: Client-side Testing"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-HSTS-002",
+      "domain": "HSTS lifetime review",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A02/A04"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-COOKIE-001..006",
+      "domain": "Cookie flags and session indicators",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A07",
+        "OWASP WSTG stable: Session Management"
+      ],
+      "finding_count": 1,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-FORM-001..002",
+      "domain": "Password transport and CSRF review candidates",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A01/A07",
+        "OWASP WSTG stable: Authentication / CSRF"
+      ],
+      "finding_count": 2,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-CORS-001..005",
+      "domain": "CORS policy, origin reflection and preflight",
+      "mode": "read-only active + passive",
+      "mapping": [
+        "OWASP API Security Top 10:2023 API8",
+        "OWASP WSTG stable: Configuration"
+      ],
+      "finding_count": 2,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-API-001..003",
+      "domain": "OpenAPI security declarations, operation inventory, URL-like parameters",
+      "mode": "passive",
+      "mapping": [
+        "OWASP API Security Top 10:2023 API9/API8/API7"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-GQL-001..002",
+      "domain": "GraphQL discovery and read-only introspection",
+      "mode": "read-only active",
+      "mapping": [
+        "OWASP API Security Top 10:2023 API8/API9"
+      ],
+      "finding_count": 2,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-AUTHZ-001",
+      "domain": "Cross-role read-only authorization review candidate",
+      "mode": "read-only active; requires supplied profiles",
+      "mapping": [
+        "OWASP Top 10:2025 A01",
+        "OWASP API Security Top 10:2023 API1/API5"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-TLS-001..005",
+      "domain": "TLS protocol, cipher, certificate and connection posture",
+      "mode": "network observation",
+      "mapping": [
+        "OWASP Top 10:2025 A04",
+        "OWASP WSTG stable: Transport Layer Protection"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-SUPPLY-001",
+      "domain": "Third-party script integrity review",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A03/A08"
+      ],
+      "finding_count": 1,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-CONTENT-001..002",
+      "domain": "Backup indicators and client-visible secret patterns",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A02/A04"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-ISOLATION-001..002",
+      "domain": "Cross-origin opener/resource policy observations",
+      "mode": "passive review candidate",
+      "mapping": [
+        "OWASP ASVS 5.0.0: Browser security"
+      ],
+      "finding_count": 2,
+      "status": "finding_observed"
+    },
+    {
+      "id": "FW-HEADER-001..002",
+      "domain": "Unexpected security-header values",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A02",
+        "OWASP ASVS 5.0.0"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-DISCLOSE-001",
+      "domain": "Versioned server/framework banner exposure",
+      "mode": "passive",
+      "mapping": [
+        "OWASP Top 10:2025 A02"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-EXPOSE-001",
+      "domain": "Read-only diagnostic/config/repository exposure signatures",
+      "mode": "bounded GET probes",
+      "mapping": [
+        "OWASP Top 10:2025 A02/A09",
+        "OWASP API Security Top 10:2023 API8/API9"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    },
+    {
+      "id": "FW-INPUT-001",
+      "domain": "Harmless GET parameter reflection canary; not an XSS proof",
+      "mode": "bounded read-only GET probe",
+      "mapping": [
+        "OWASP Top 10:2025 A05",
+        "OWASP WSTG stable: Input Validation Testing"
+      ],
+      "finding_count": 0,
+      "status": "no_finding_recorded_or_not_applicable"
+    }
+  ],
+  "events": [
+    {
+      "phase": "scope",
+      "message": "Validating scope and scan policy",
+      "progress": 2.0,
+      "created_at": "2026-10-09T15:20:38.166889"
+    },
+    {
+      "phase": "recon",
+      "message": "Crawling target and building attack-surface inventory",
+      "progress": 8.0,
+      "created_at": "2026-10-09T15:20:38.167551"
+    },
+    {
+      "phase": "sitemap",
+      "message": "Discovered 0 same-scope sitemap URL candidates",
+      "progress": 7.0,
+      "created_at": "2026-10-09T15:20:38.240539"
+    },
+    {
+      "phase": "recon",
+      "message": "Discovered 5 web pages/resources",
+      "progress": 28.0,
+      "created_at": "2026-10-09T15:20:38.280621"
+    },
+    {
+      "phase": "input-probes",
+      "message": "Checking a bounded set of GET query parameters with harmless alphanumeric canaries only",
+      "progress": 34.0,
+      "created_at": "2026-10-09T15:20:38.316933"
+    },
+    {
+      "phase": "api",
+      "message": "Discovering API specifications, GraphQL endpoints and OPTIONS/CORS posture",
+      "progress": 40.0,
+      "created_at": "2026-10-09T15:20:38.323605"
+    },
+    {
+      "phase": "transport",
+      "message": "Inspecting TLS and redirect posture",
+      "progress": 58.0,
+      "created_at": "2026-10-09T15:20:38.372749"
+    },
+    {
+      "phase": "metadata",
+      "message": "Checking standard metadata and operational security endpoints",
+      "progress": 66.0,
+      "created_at": "2026-10-09T15:20:38.380891"
+    },
+    {
+      "phase": "finalize",
+      "message": "Deduplicating findings and rendering reports",
+      "progress": 90.0,
+      "created_at": "2026-10-09T15:20:38.409255"
+    }
+  ],
+  "findings": [
+    {
+      "id": "ad41ef04-3aa2-44a8-ac4c-7f1b7f3fe40c",
+      "rule_id": "FW-FORM-001",
+      "category": "authentication",
+      "title": "Password form submits over HTTP",
+      "severity": "high",
+      "confidence": 0.995,
+      "risk_score": 7.96,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "A password-bearing form submits to cleartext HTTP.",
+      "impact": "Credentials may be exposed to interception.",
+      "remediation": "Use HTTPS-only authentication endpoints and redirect/block cleartext access.",
+      "evidence_summary": "Password input with HTTP action.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "e5fed071-46bf-4964-962e-deecb940cfa0",
+      "rule_id": "FW-WEB-001",
+      "category": "security-headers",
+      "title": "CSP header missing",
+      "severity": "medium",
+      "confidence": 0.97,
+      "risk_score": 4.85,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "The response does not advertise content-security-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Deploy a restrictive Content-Security-Policy.",
+      "evidence_summary": "content-security-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "b7a670e1-9928-4657-ba0d-82d2a47c931d",
+      "rule_id": "FW-WEB-001",
+      "category": "security-headers",
+      "title": "CSP header missing",
+      "severity": "medium",
+      "confidence": 0.97,
+      "risk_score": 4.85,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "The response does not advertise content-security-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Deploy a restrictive Content-Security-Policy.",
+      "evidence_summary": "content-security-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "c0fa9014-03f9-4a30-96e8-a13c8c1ad16e",
+      "rule_id": "FW-WEB-001",
+      "category": "security-headers",
+      "title": "CSP header missing",
+      "severity": "medium",
+      "confidence": 0.97,
+      "risk_score": 4.85,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "The response does not advertise content-security-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Deploy a restrictive Content-Security-Policy.",
+      "evidence_summary": "content-security-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "fb21ccb4-4e7a-4a0b-9098-5b22e5f5725c",
+      "rule_id": "FW-WEB-001",
+      "category": "security-headers",
+      "title": "CSP header missing",
+      "severity": "medium",
+      "confidence": 0.97,
+      "risk_score": 4.85,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/api/users/1",
+      "description": "The response does not advertise content-security-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Deploy a restrictive Content-Security-Policy.",
+      "evidence_summary": "content-security-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "687ee2bb-2716-48f6-bd8d-23978d0d56b2",
+      "rule_id": "FW-WEB-001",
+      "category": "security-headers",
+      "title": "CSP header missing",
+      "severity": "medium",
+      "confidence": 0.97,
+      "risk_score": 4.85,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "The response does not advertise content-security-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Deploy a restrictive Content-Security-Policy.",
+      "evidence_summary": "content-security-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "e9eb86c3-bb36-4563-8254-297fc99bada2",
+      "rule_id": "FW-WEB-005",
+      "category": "security-headers",
+      "title": "Clickjacking protection not detected",
+      "severity": "medium",
+      "confidence": 0.95,
+      "risk_score": 4.75,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "Neither X-Frame-Options nor CSP frame-ancestors was observed.",
+      "impact": "Sensitive UI may be embeddable by another origin.",
+      "remediation": "Set CSP frame-ancestors and/or X-Frame-Options as appropriate.",
+      "evidence_summary": "No frame restriction detected.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "e87828ff-e1cd-4445-886d-907dd1cace93",
+      "rule_id": "FW-WEB-005",
+      "category": "security-headers",
+      "title": "Clickjacking protection not detected",
+      "severity": "medium",
+      "confidence": 0.95,
+      "risk_score": 4.75,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "Neither X-Frame-Options nor CSP frame-ancestors was observed.",
+      "impact": "Sensitive UI may be embeddable by another origin.",
+      "remediation": "Set CSP frame-ancestors and/or X-Frame-Options as appropriate.",
+      "evidence_summary": "No frame restriction detected.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "bf5c7ec3-de68-450f-b699-61cf59cdbf44",
+      "rule_id": "FW-COOKIE-002",
+      "category": "session",
+      "title": "Session-like cookie missing HttpOnly",
+      "severity": "medium",
+      "confidence": 0.95,
+      "risk_score": 4.75,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "Cookie `session_id` appears session/auth related but lacks HttpOnly.",
+      "impact": "Client-side script access can increase credential exposure in case of XSS.",
+      "remediation": "Add HttpOnly when JavaScript access is not required.",
+      "evidence_summary": "session_id: [REDACTED]",
+      "references": []
+    },
+    {
+      "id": "6632255e-79e3-429b-b82c-0a62c065beef",
+      "rule_id": "FW-WEB-005",
+      "category": "security-headers",
+      "title": "Clickjacking protection not detected",
+      "severity": "medium",
+      "confidence": 0.95,
+      "risk_score": 4.75,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "Neither X-Frame-Options nor CSP frame-ancestors was observed.",
+      "impact": "Sensitive UI may be embeddable by another origin.",
+      "remediation": "Set CSP frame-ancestors and/or X-Frame-Options as appropriate.",
+      "evidence_summary": "No frame restriction detected.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "641a8e48-c46b-4675-beab-eedeec49a0eb",
+      "rule_id": "FW-WEB-005",
+      "category": "security-headers",
+      "title": "Clickjacking protection not detected",
+      "severity": "medium",
+      "confidence": 0.95,
+      "risk_score": 4.75,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/api/users/1",
+      "description": "Neither X-Frame-Options nor CSP frame-ancestors was observed.",
+      "impact": "Sensitive UI may be embeddable by another origin.",
+      "remediation": "Set CSP frame-ancestors and/or X-Frame-Options as appropriate.",
+      "evidence_summary": "No frame restriction detected.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "c0eeef67-6e30-4149-8b48-521d520fa15a",
+      "rule_id": "FW-WEB-005",
+      "category": "security-headers",
+      "title": "Clickjacking protection not detected",
+      "severity": "medium",
+      "confidence": 0.95,
+      "risk_score": 4.75,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "Neither X-Frame-Options nor CSP frame-ancestors was observed.",
+      "impact": "Sensitive UI may be embeddable by another origin.",
+      "remediation": "Set CSP frame-ancestors and/or X-Frame-Options as appropriate.",
+      "evidence_summary": "No frame restriction detected.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "b3897bd9-3a72-4e77-afb1-998e7d7693ce",
+      "rule_id": "FW-CORS-005",
+      "category": "api",
+      "title": "Preflight reflects untrusted origin with credentials enabled",
+      "severity": "medium",
+      "confidence": 0.92,
+      "risk_score": 4.6,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "An OPTIONS preflight response reflected the synthetic untrusted Origin and enabled credentials.",
+      "impact": "If sensitive endpoints share this policy, untrusted browser origins may be able to read responses in a credentialed context.",
+      "remediation": "Return only explicitly allow-listed origins; review credential policy and allowed methods/headers.",
+      "evidence_summary": "Preflight Origin was reflected while Access-Control-Allow-Credentials was true.",
+      "references": []
+    },
+    {
+      "id": "09898968-7768-4708-a2a2-6f72834177ed",
+      "rule_id": "FW-CORS-004",
+      "category": "api",
+      "title": "CORS origin reflection detected",
+      "severity": "medium",
+      "confidence": 0.9,
+      "risk_score": 4.5,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "The response reflected an arbitrary test Origin value in Access-Control-Allow-Origin.",
+      "impact": "Origin reflection can enable unintended cross-origin access when combined with sensitive resources or credentials.",
+      "remediation": "Use a strict allow-list and validate origins server-side rather than reflecting arbitrary Origin values.",
+      "evidence_summary": "Injected test Origin was reflected.",
+      "references": []
+    },
+    {
+      "id": "7c1bd276-1899-496a-9f92-3de9cac5d3d3",
+      "rule_id": "FW-WEB-008",
+      "category": "caching",
+      "title": "Sensitive-looking page lacks Cache-Control evidence",
+      "severity": "medium",
+      "confidence": 0.72,
+      "risk_score": 3.6,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "A sensitive-looking URL does not expose a restrictive Cache-Control policy.",
+      "impact": "Shared/private caching could retain sensitive material depending on framework/proxy behavior.",
+      "remediation": "Review caching policy and explicitly control storage for authenticated/sensitive responses.",
+      "evidence_summary": "No Cache-Control header on sensitive-looking path.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "d08f0714-6d1e-433a-ac70-db5a30530034",
+      "rule_id": "FW-WEB-008",
+      "category": "caching",
+      "title": "Sensitive-looking page lacks Cache-Control evidence",
+      "severity": "medium",
+      "confidence": 0.72,
+      "risk_score": 3.6,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "A sensitive-looking URL does not expose a restrictive Cache-Control policy.",
+      "impact": "Shared/private caching could retain sensitive material depending on framework/proxy behavior.",
+      "remediation": "Review caching policy and explicitly control storage for authenticated/sensitive responses.",
+      "evidence_summary": "No Cache-Control header on sensitive-looking path.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "618e24ee-5774-4b80-9185-e25f297fb93c",
+      "rule_id": "FW-WEB-002",
+      "category": "security-headers",
+      "title": "X-Content-Type-Options missing",
+      "severity": "low",
+      "confidence": 0.98,
+      "risk_score": 2.45,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "The response does not advertise x-content-type-options.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set X-Content-Type-Options: nosniff.",
+      "evidence_summary": "x-content-type-options was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "1060daaa-1cfe-4122-a056-fd8d31a5046b",
+      "rule_id": "FW-WEB-002",
+      "category": "security-headers",
+      "title": "X-Content-Type-Options missing",
+      "severity": "low",
+      "confidence": 0.98,
+      "risk_score": 2.45,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "The response does not advertise x-content-type-options.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set X-Content-Type-Options: nosniff.",
+      "evidence_summary": "x-content-type-options was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "6f49c22a-8bd2-42da-806f-d04d8dbee091",
+      "rule_id": "FW-WEB-002",
+      "category": "security-headers",
+      "title": "X-Content-Type-Options missing",
+      "severity": "low",
+      "confidence": 0.98,
+      "risk_score": 2.45,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "The response does not advertise x-content-type-options.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set X-Content-Type-Options: nosniff.",
+      "evidence_summary": "x-content-type-options was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "a7c3dd31-5cce-4097-af8b-d31005559ff2",
+      "rule_id": "FW-WEB-002",
+      "category": "security-headers",
+      "title": "X-Content-Type-Options missing",
+      "severity": "low",
+      "confidence": 0.98,
+      "risk_score": 2.45,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/api/users/1",
+      "description": "The response does not advertise x-content-type-options.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set X-Content-Type-Options: nosniff.",
+      "evidence_summary": "x-content-type-options was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "cf401d61-5b5d-44a4-a531-e6a6d150bd4c",
+      "rule_id": "FW-WEB-002",
+      "category": "security-headers",
+      "title": "X-Content-Type-Options missing",
+      "severity": "low",
+      "confidence": 0.98,
+      "risk_score": 2.45,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "The response does not advertise x-content-type-options.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set X-Content-Type-Options: nosniff.",
+      "evidence_summary": "x-content-type-options was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "dce38a27-0e5d-49b4-aab6-591a33036ae6",
+      "rule_id": "FW-GQL-002",
+      "category": "graphql",
+      "title": "GraphQL introspection enabled",
+      "severity": "low",
+      "confidence": 0.97,
+      "risk_score": 2.42,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/graphql",
+      "description": "GraphQL introspection returned a schema to the supplied security-testing session.",
+      "impact": "Public schema exposure can simplify discovery of API capabilities.",
+      "remediation": "Disable introspection in production when it is not required, or restrict it to trusted development/admin contexts.",
+      "evidence_summary": "Introspection query returned a schema.",
+      "references": []
+    },
+    {
+      "id": "03da59b4-af2d-4cc3-ad8e-bfd2175a8580",
+      "rule_id": "FW-WEB-003",
+      "category": "security-headers",
+      "title": "Referrer-Policy missing",
+      "severity": "low",
+      "confidence": 0.96,
+      "risk_score": 2.4,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "The response does not advertise referrer-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set an explicit Referrer-Policy.",
+      "evidence_summary": "referrer-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "765dc430-92eb-430c-b91e-687af4549853",
+      "rule_id": "FW-WEB-003",
+      "category": "security-headers",
+      "title": "Referrer-Policy missing",
+      "severity": "low",
+      "confidence": 0.96,
+      "risk_score": 2.4,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "The response does not advertise referrer-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set an explicit Referrer-Policy.",
+      "evidence_summary": "referrer-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "ed671e98-9da2-4a13-bd26-54efa3c08d14",
+      "rule_id": "FW-WEB-003",
+      "category": "security-headers",
+      "title": "Referrer-Policy missing",
+      "severity": "low",
+      "confidence": 0.96,
+      "risk_score": 2.4,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "The response does not advertise referrer-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set an explicit Referrer-Policy.",
+      "evidence_summary": "referrer-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "df025500-736f-4a0d-a03f-fb467a9c1714",
+      "rule_id": "FW-WEB-003",
+      "category": "security-headers",
+      "title": "Referrer-Policy missing",
+      "severity": "low",
+      "confidence": 0.96,
+      "risk_score": 2.4,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/api/users/1",
+      "description": "The response does not advertise referrer-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set an explicit Referrer-Policy.",
+      "evidence_summary": "referrer-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "4ab06c36-e1a3-46f4-b8f2-84ba92d4f048",
+      "rule_id": "FW-WEB-003",
+      "category": "security-headers",
+      "title": "Referrer-Policy missing",
+      "severity": "low",
+      "confidence": 0.96,
+      "risk_score": 2.4,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "The response does not advertise referrer-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Set an explicit Referrer-Policy.",
+      "evidence_summary": "referrer-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "b4677ed0-1e57-4185-b6e6-2b5bd9f79781",
+      "rule_id": "FW-WEB-004",
+      "category": "security-headers",
+      "title": "Permissions-Policy missing",
+      "severity": "low",
+      "confidence": 0.93,
+      "risk_score": 2.33,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "The response does not advertise permissions-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Define an explicit Permissions-Policy for used browser capabilities.",
+      "evidence_summary": "permissions-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "aad4f50c-930c-4f88-a9b8-ccd040e14bcc",
+      "rule_id": "FW-WEB-004",
+      "category": "security-headers",
+      "title": "Permissions-Policy missing",
+      "severity": "low",
+      "confidence": 0.93,
+      "risk_score": 2.33,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "The response does not advertise permissions-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Define an explicit Permissions-Policy for used browser capabilities.",
+      "evidence_summary": "permissions-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "fe63020d-cfe2-4798-a0d7-653c83e42364",
+      "rule_id": "FW-WEB-004",
+      "category": "security-headers",
+      "title": "Permissions-Policy missing",
+      "severity": "low",
+      "confidence": 0.93,
+      "risk_score": 2.33,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "The response does not advertise permissions-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Define an explicit Permissions-Policy for used browser capabilities.",
+      "evidence_summary": "permissions-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "22856f21-b156-4270-a046-99667d2eefbb",
+      "rule_id": "FW-WEB-004",
+      "category": "security-headers",
+      "title": "Permissions-Policy missing",
+      "severity": "low",
+      "confidence": 0.93,
+      "risk_score": 2.33,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/api/users/1",
+      "description": "The response does not advertise permissions-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Define an explicit Permissions-Policy for used browser capabilities.",
+      "evidence_summary": "permissions-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "bc641c30-ba51-48c2-9a80-1543c8b9a983",
+      "rule_id": "FW-WEB-004",
+      "category": "security-headers",
+      "title": "Permissions-Policy missing",
+      "severity": "low",
+      "confidence": 0.93,
+      "risk_score": 2.33,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "The response does not advertise permissions-policy.",
+      "impact": "Browser-side defense-in-depth is weaker than necessary.",
+      "remediation": "Define an explicit Permissions-Policy for used browser capabilities.",
+      "evidence_summary": "permissions-policy was absent.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "fb3709d7-d46d-4934-a72b-5ed2d00968ba",
+      "rule_id": "FW-GQL-001",
+      "category": "graphql",
+      "title": "GraphQL endpoint discovered",
+      "severity": "info",
+      "confidence": 0.98,
+      "risk_score": 0.49,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/graphql",
+      "description": "A GraphQL endpoint appears to be exposed.",
+      "impact": "GraphQL deserves dedicated authorization, query-depth/complexity, and introspection review.",
+      "remediation": "Review resolver-level authorization, query complexity limits, rate controls, and introspection policy.",
+      "evidence_summary": "GraphQL-like URL discovered: http://127.0.0.1:8771/graphql",
+      "references": []
+    },
+    {
+      "id": "b79005e3-49cd-4607-8b6b-6990016016bb",
+      "rule_id": "FW-WEB-007",
+      "category": "information-disclosure",
+      "title": "Technology banner disclosure",
+      "severity": "info",
+      "confidence": 0.92,
+      "risk_score": 0.46,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "Response headers reveal server/framework details.",
+      "impact": "Fingerprinting becomes easier.",
+      "remediation": "Reduce unnecessary banner disclosure.",
+      "evidence_summary": "Disclosed: {'server': 'uvicorn'}",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "7110a320-2f35-4aa8-9cca-36e7a8f50121",
+      "rule_id": "FW-WEB-007",
+      "category": "information-disclosure",
+      "title": "Technology banner disclosure",
+      "severity": "info",
+      "confidence": 0.92,
+      "risk_score": 0.46,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/set-cookie",
+      "description": "Response headers reveal server/framework details.",
+      "impact": "Fingerprinting becomes easier.",
+      "remediation": "Reduce unnecessary banner disclosure.",
+      "evidence_summary": "Disclosed: {'server': 'uvicorn'}",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "9acb125a-61c4-4fc6-9786-ab9972609764",
+      "rule_id": "FW-WEB-007",
+      "category": "information-disclosure",
+      "title": "Technology banner disclosure",
+      "severity": "info",
+      "confidence": 0.92,
+      "risk_score": 0.46,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/admin/panel",
+      "description": "Response headers reveal server/framework details.",
+      "impact": "Fingerprinting becomes easier.",
+      "remediation": "Reduce unnecessary banner disclosure.",
+      "evidence_summary": "Disclosed: {'server': 'uvicorn'}",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "0eed038c-9750-4b39-a040-6e0eed5861bc",
+      "rule_id": "FW-WEB-007",
+      "category": "information-disclosure",
+      "title": "Technology banner disclosure",
+      "severity": "info",
+      "confidence": 0.92,
+      "risk_score": 0.46,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/api/users/1",
+      "description": "Response headers reveal server/framework details.",
+      "impact": "Fingerprinting becomes easier.",
+      "remediation": "Reduce unnecessary banner disclosure.",
+      "evidence_summary": "Disclosed: {'server': 'uvicorn'}",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "b96ba421-01a2-49ab-95d9-7eb757935972",
+      "rule_id": "FW-WEB-007",
+      "category": "information-disclosure",
+      "title": "Technology banner disclosure",
+      "severity": "info",
+      "confidence": 0.92,
+      "risk_score": 0.46,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/login",
+      "description": "Response headers reveal server/framework details.",
+      "impact": "Fingerprinting becomes easier.",
+      "remediation": "Reduce unnecessary banner disclosure.",
+      "evidence_summary": "Disclosed: {'server': 'uvicorn'}",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "5b2f41a0-0cb3-4b97-a552-2abc0daf2720",
+      "rule_id": "FW-SUPPLY-001",
+      "category": "software-supply-chain",
+      "title": "Third-party script without Subresource Integrity",
+      "severity": "info",
+      "confidence": 0.8,
+      "risk_score": 0.4,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "One or more third-party scripts lack an integrity attribute in the observed markup.",
+      "impact": "If the third-party source is compromised or changes unexpectedly, script content may change without an SRI check.",
+      "remediation": "For stable third-party assets, consider SRI plus crossorigin; use CSP and dependency governance as defense in depth.",
+      "evidence_summary": "1 external script(s) without SRI observed.",
+      "references": [
+        "OWASP WSTG stable"
+      ]
+    },
+    {
+      "id": "be944a1f-f052-4740-b315-182195cd82f0",
+      "rule_id": "FW-FORM-002",
+      "category": "csrf",
+      "title": "CSRF protection not obvious in state-changing form",
+      "severity": "info",
+      "confidence": 0.62,
+      "risk_score": 0.31,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "No commonly named CSRF token field was observed. This is a review candidate, not proof of a CSRF flaw.",
+      "impact": "State-changing requests may require server-side CSRF defenses.",
+      "remediation": "Verify framework/token/header-based CSRF controls for state-changing operations.",
+      "evidence_summary": "No common CSRF token field name detected.",
+      "references": [
+        "OWASP WSTG v4.2"
+      ]
+    },
+    {
+      "id": "c0961b5c-39b9-41c5-a9b2-aa3b23c7298c",
+      "rule_id": "FW-ISOLATION-001",
+      "category": "browser-isolation",
+      "title": "Cross-Origin-Opener-Policy not observed",
+      "severity": "info",
+      "confidence": 0.58,
+      "risk_score": 0.29,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "No Cross-Origin-Opener-Policy response header was observed on HTML.",
+      "impact": "Cross-origin window relationships may be less isolated than a highly isolated application expects.",
+      "remediation": "Review whether same-origin or same-origin-allow-popups isolation is appropriate for this application.",
+      "evidence_summary": "Cross-Origin-Opener-Policy absent; applicability depends on app behavior.",
+      "references": [
+        "OWASP WSTG stable"
+      ]
+    },
+    {
+      "id": "6c9487f6-a993-4892-b551-4f08a49aa9ac",
+      "rule_id": "FW-ISOLATION-002",
+      "category": "browser-isolation",
+      "title": "Cross-Origin-Resource-Policy not observed",
+      "severity": "info",
+      "confidence": 0.55,
+      "risk_score": 0.28,
+      "status": "open",
+      "endpoint": "http://127.0.0.1:8771/",
+      "description": "No Cross-Origin-Resource-Policy response header was observed on HTML.",
+      "impact": "Cross-origin resource embedding policy is implicit rather than explicitly declared.",
+      "remediation": "Assess whether same-origin, same-site, or cross-origin resource policy fits the product.",
+      "evidence_summary": "Cross-Origin-Resource-Policy absent; no exploit inferred.",
+      "references": [
+        "OWASP WSTG stable"
+      ]
+    }
+  ]
+}

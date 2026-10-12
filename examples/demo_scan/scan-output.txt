@@ -1,0 +1,7 @@
+FIREWATCH Web Security Agent v5.0.0 — reproducible local demo scan
+Target: http://127.0.0.1:8771/ (deliberately vulnerable local demo only)
+Status: completed
+Findings: 42
+Report formats: report.html, report.json, findings.csv, report.md, report.sarif.json
+
+This output is illustrative, generated against the included demo target. It is not evidence about any external website.

@@ -1,0 +1,1294 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "FIREWATCH Web Security Agent",
+          "informationUri": "https://owasp.org/",
+          "version": "5.0.0",
+          "rules": [
+            {
+              "id": "FW-FORM-001",
+              "name": "Password form submits over HTTP",
+              "shortDescription": {
+                "text": "Password form submits over HTTP"
+              },
+              "fullDescription": {
+                "text": "A password-bearing form submits to cleartext HTTP."
+              },
+              "help": {
+                "text": "Use HTTPS-only authentication endpoints and redirect/block cleartext access."
+              },
+              "properties": {
+                "category": "authentication",
+                "severity": "high",
+                "confidence": 0.995,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-WEB-001",
+              "name": "CSP header missing",
+              "shortDescription": {
+                "text": "CSP header missing"
+              },
+              "fullDescription": {
+                "text": "The response does not advertise content-security-policy."
+              },
+              "help": {
+                "text": "Deploy a restrictive Content-Security-Policy."
+              },
+              "properties": {
+                "category": "security-headers",
+                "severity": "medium",
+                "confidence": 0.97,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-WEB-005",
+              "name": "Clickjacking protection not detected",
+              "shortDescription": {
+                "text": "Clickjacking protection not detected"
+              },
+              "fullDescription": {
+                "text": "Neither X-Frame-Options nor CSP frame-ancestors was observed."
+              },
+              "help": {
+                "text": "Set CSP frame-ancestors and/or X-Frame-Options as appropriate."
+              },
+              "properties": {
+                "category": "security-headers",
+                "severity": "medium",
+                "confidence": 0.95,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-COOKIE-002",
+              "name": "Session-like cookie missing HttpOnly",
+              "shortDescription": {
+                "text": "Session-like cookie missing HttpOnly"
+              },
+              "fullDescription": {
+                "text": "Cookie `session_id` appears session/auth related but lacks HttpOnly."
+              },
+              "help": {
+                "text": "Add HttpOnly when JavaScript access is not required."
+              },
+              "properties": {
+                "category": "session",
+                "severity": "medium",
+                "confidence": 0.95,
+                "references": []
+              }
+            },
+            {
+              "id": "FW-CORS-005",
+              "name": "Preflight reflects untrusted origin with credentials enabled",
+              "shortDescription": {
+                "text": "Preflight reflects untrusted origin with credentials enabled"
+              },
+              "fullDescription": {
+                "text": "An OPTIONS preflight response reflected the synthetic untrusted Origin and enabled credentials."
+              },
+              "help": {
+                "text": "Return only explicitly allow-listed origins; review credential policy and allowed methods/headers."
+              },
+              "properties": {
+                "category": "api",
+                "severity": "medium",
+                "confidence": 0.92,
+                "references": []
+              }
+            },
+            {
+              "id": "FW-CORS-004",
+              "name": "CORS origin reflection detected",
+              "shortDescription": {
+                "text": "CORS origin reflection detected"
+              },
+              "fullDescription": {
+                "text": "The response reflected an arbitrary test Origin value in Access-Control-Allow-Origin."
+              },
+              "help": {
+                "text": "Use a strict allow-list and validate origins server-side rather than reflecting arbitrary Origin values."
+              },
+              "properties": {
+                "category": "api",
+                "severity": "medium",
+                "confidence": 0.9,
+                "references": []
+              }
+            },
+            {
+              "id": "FW-WEB-008",
+              "name": "Sensitive-looking page lacks Cache-Control evidence",
+              "shortDescription": {
+                "text": "Sensitive-looking page lacks Cache-Control evidence"
+              },
+              "fullDescription": {
+                "text": "A sensitive-looking URL does not expose a restrictive Cache-Control policy."
+              },
+              "help": {
+                "text": "Review caching policy and explicitly control storage for authenticated/sensitive responses."
+              },
+              "properties": {
+                "category": "caching",
+                "severity": "medium",
+                "confidence": 0.72,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-WEB-002",
+              "name": "X-Content-Type-Options missing",
+              "shortDescription": {
+                "text": "X-Content-Type-Options missing"
+              },
+              "fullDescription": {
+                "text": "The response does not advertise x-content-type-options."
+              },
+              "help": {
+                "text": "Set X-Content-Type-Options: nosniff."
+              },
+              "properties": {
+                "category": "security-headers",
+                "severity": "low",
+                "confidence": 0.98,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-GQL-002",
+              "name": "GraphQL introspection enabled",
+              "shortDescription": {
+                "text": "GraphQL introspection enabled"
+              },
+              "fullDescription": {
+                "text": "GraphQL introspection returned a schema to the supplied security-testing session."
+              },
+              "help": {
+                "text": "Disable introspection in production when it is not required, or restrict it to trusted development/admin contexts."
+              },
+              "properties": {
+                "category": "graphql",
+                "severity": "low",
+                "confidence": 0.97,
+                "references": []
+              }
+            },
+            {
+              "id": "FW-WEB-003",
+              "name": "Referrer-Policy missing",
+              "shortDescription": {
+                "text": "Referrer-Policy missing"
+              },
+              "fullDescription": {
+                "text": "The response does not advertise referrer-policy."
+              },
+              "help": {
+                "text": "Set an explicit Referrer-Policy."
+              },
+              "properties": {
+                "category": "security-headers",
+                "severity": "low",
+                "confidence": 0.96,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-WEB-004",
+              "name": "Permissions-Policy missing",
+              "shortDescription": {
+                "text": "Permissions-Policy missing"
+              },
+              "fullDescription": {
+                "text": "The response does not advertise permissions-policy."
+              },
+              "help": {
+                "text": "Define an explicit Permissions-Policy for used browser capabilities."
+              },
+              "properties": {
+                "category": "security-headers",
+                "severity": "low",
+                "confidence": 0.93,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-GQL-001",
+              "name": "GraphQL endpoint discovered",
+              "shortDescription": {
+                "text": "GraphQL endpoint discovered"
+              },
+              "fullDescription": {
+                "text": "A GraphQL endpoint appears to be exposed."
+              },
+              "help": {
+                "text": "Review resolver-level authorization, query complexity limits, rate controls, and introspection policy."
+              },
+              "properties": {
+                "category": "graphql",
+                "severity": "info",
+                "confidence": 0.98,
+                "references": []
+              }
+            },
+            {
+              "id": "FW-WEB-007",
+              "name": "Technology banner disclosure",
+              "shortDescription": {
+                "text": "Technology banner disclosure"
+              },
+              "fullDescription": {
+                "text": "Response headers reveal server/framework details."
+              },
+              "help": {
+                "text": "Reduce unnecessary banner disclosure."
+              },
+              "properties": {
+                "category": "information-disclosure",
+                "severity": "info",
+                "confidence": 0.92,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-SUPPLY-001",
+              "name": "Third-party script without Subresource Integrity",
+              "shortDescription": {
+                "text": "Third-party script without Subresource Integrity"
+              },
+              "fullDescription": {
+                "text": "One or more third-party scripts lack an integrity attribute in the observed markup."
+              },
+              "help": {
+                "text": "For stable third-party assets, consider SRI plus crossorigin; use CSP and dependency governance as defense in depth."
+              },
+              "properties": {
+                "category": "software-supply-chain",
+                "severity": "info",
+                "confidence": 0.8,
+                "references": [
+                  "OWASP WSTG stable"
+                ]
+              }
+            },
+            {
+              "id": "FW-FORM-002",
+              "name": "CSRF protection not obvious in state-changing form",
+              "shortDescription": {
+                "text": "CSRF protection not obvious in state-changing form"
+              },
+              "fullDescription": {
+                "text": "No commonly named CSRF token field was observed. This is a review candidate, not proof of a CSRF flaw."
+              },
+              "help": {
+                "text": "Verify framework/token/header-based CSRF controls for state-changing operations."
+              },
+              "properties": {
+                "category": "csrf",
+                "severity": "info",
+                "confidence": 0.62,
+                "references": [
+                  "OWASP WSTG v4.2"
+                ]
+              }
+            },
+            {
+              "id": "FW-ISOLATION-001",
+              "name": "Cross-Origin-Opener-Policy not observed",
+              "shortDescription": {
+                "text": "Cross-Origin-Opener-Policy not observed"
+              },
+              "fullDescription": {
+                "text": "No Cross-Origin-Opener-Policy response header was observed on HTML."
+              },
+              "help": {
+                "text": "Review whether same-origin or same-origin-allow-popups isolation is appropriate for this application."
+              },
+              "properties": {
+                "category": "browser-isolation",
+                "severity": "info",
+                "confidence": 0.58,
+                "references": [
+                  "OWASP WSTG stable"
+                ]
+              }
+            },
+            {
+              "id": "FW-ISOLATION-002",
+              "name": "Cross-Origin-Resource-Policy not observed",
+              "shortDescription": {
+                "text": "Cross-Origin-Resource-Policy not observed"
+              },
+              "fullDescription": {
+                "text": "No Cross-Origin-Resource-Policy response header was observed on HTML."
+              },
+              "help": {
+                "text": "Assess whether same-origin, same-site, or cross-origin resource policy fits the product."
+              },
+              "properties": {
+                "category": "browser-isolation",
+                "severity": "info",
+                "confidence": 0.55,
+                "references": [
+                  "OWASP WSTG stable"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "FW-FORM-001",
+          "level": "error",
+          "message": {
+            "text": "A password-bearing form submits to cleartext HTTP. Evidence: Password input with HTTP action."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "ad41ef04-3aa2-44a8-ac4c-7f1b7f3fe40c",
+            "riskScore": 7.96,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-001",
+          "level": "warning",
+          "message": {
+            "text": "The response does not advertise content-security-policy. Evidence: content-security-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "e5fed071-46bf-4964-962e-deecb940cfa0",
+            "riskScore": 4.85,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-001",
+          "level": "warning",
+          "message": {
+            "text": "The response does not advertise content-security-policy. Evidence: content-security-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "b7a670e1-9928-4657-ba0d-82d2a47c931d",
+            "riskScore": 4.85,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-001",
+          "level": "warning",
+          "message": {
+            "text": "The response does not advertise content-security-policy. Evidence: content-security-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "c0fa9014-03f9-4a30-96e8-a13c8c1ad16e",
+            "riskScore": 4.85,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-001",
+          "level": "warning",
+          "message": {
+            "text": "The response does not advertise content-security-policy. Evidence: content-security-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/api/users/1"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "fb21ccb4-4e7a-4a0b-9098-5b22e5f5725c",
+            "riskScore": 4.85,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-001",
+          "level": "warning",
+          "message": {
+            "text": "The response does not advertise content-security-policy. Evidence: content-security-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "687ee2bb-2716-48f6-bd8d-23978d0d56b2",
+            "riskScore": 4.85,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-005",
+          "level": "warning",
+          "message": {
+            "text": "Neither X-Frame-Options nor CSP frame-ancestors was observed. Evidence: No frame restriction detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "e9eb86c3-bb36-4563-8254-297fc99bada2",
+            "riskScore": 4.75,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-005",
+          "level": "warning",
+          "message": {
+            "text": "Neither X-Frame-Options nor CSP frame-ancestors was observed. Evidence: No frame restriction detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "e87828ff-e1cd-4445-886d-907dd1cace93",
+            "riskScore": 4.75,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-COOKIE-002",
+          "level": "warning",
+          "message": {
+            "text": "Cookie `session_id` appears session/auth related but lacks HttpOnly. Evidence: session_id: [REDACTED]"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "bf5c7ec3-de68-450f-b699-61cf59cdbf44",
+            "riskScore": 4.75,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-005",
+          "level": "warning",
+          "message": {
+            "text": "Neither X-Frame-Options nor CSP frame-ancestors was observed. Evidence: No frame restriction detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "6632255e-79e3-429b-b82c-0a62c065beef",
+            "riskScore": 4.75,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-005",
+          "level": "warning",
+          "message": {
+            "text": "Neither X-Frame-Options nor CSP frame-ancestors was observed. Evidence: No frame restriction detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/api/users/1"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "641a8e48-c46b-4675-beab-eedeec49a0eb",
+            "riskScore": 4.75,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-005",
+          "level": "warning",
+          "message": {
+            "text": "Neither X-Frame-Options nor CSP frame-ancestors was observed. Evidence: No frame restriction detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "c0eeef67-6e30-4149-8b48-521d520fa15a",
+            "riskScore": 4.75,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-CORS-005",
+          "level": "warning",
+          "message": {
+            "text": "An OPTIONS preflight response reflected the synthetic untrusted Origin and enabled credentials. Evidence: Preflight Origin was reflected while Access-Control-Allow-Credentials was true."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "b3897bd9-3a72-4e77-afb1-998e7d7693ce",
+            "riskScore": 4.6,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-CORS-004",
+          "level": "warning",
+          "message": {
+            "text": "The response reflected an arbitrary test Origin value in Access-Control-Allow-Origin. Evidence: Injected test Origin was reflected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "09898968-7768-4708-a2a2-6f72834177ed",
+            "riskScore": 4.5,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-008",
+          "level": "warning",
+          "message": {
+            "text": "A sensitive-looking URL does not expose a restrictive Cache-Control policy. Evidence: No Cache-Control header on sensitive-looking path."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "7c1bd276-1899-496a-9f92-3de9cac5d3d3",
+            "riskScore": 3.6,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-008",
+          "level": "warning",
+          "message": {
+            "text": "A sensitive-looking URL does not expose a restrictive Cache-Control policy. Evidence: No Cache-Control header on sensitive-looking path."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "d08f0714-6d1e-433a-ac70-db5a30530034",
+            "riskScore": 3.6,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-002",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise x-content-type-options. Evidence: x-content-type-options was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "618e24ee-5774-4b80-9185-e25f297fb93c",
+            "riskScore": 2.45,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-002",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise x-content-type-options. Evidence: x-content-type-options was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "1060daaa-1cfe-4122-a056-fd8d31a5046b",
+            "riskScore": 2.45,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-002",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise x-content-type-options. Evidence: x-content-type-options was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "6f49c22a-8bd2-42da-806f-d04d8dbee091",
+            "riskScore": 2.45,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-002",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise x-content-type-options. Evidence: x-content-type-options was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/api/users/1"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "a7c3dd31-5cce-4097-af8b-d31005559ff2",
+            "riskScore": 2.45,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-002",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise x-content-type-options. Evidence: x-content-type-options was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "cf401d61-5b5d-44a4-a531-e6a6d150bd4c",
+            "riskScore": 2.45,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-GQL-002",
+          "level": "note",
+          "message": {
+            "text": "GraphQL introspection returned a schema to the supplied security-testing session. Evidence: Introspection query returned a schema."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/graphql"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "dce38a27-0e5d-49b4-aab6-591a33036ae6",
+            "riskScore": 2.42,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-003",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise referrer-policy. Evidence: referrer-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "03da59b4-af2d-4cc3-ad8e-bfd2175a8580",
+            "riskScore": 2.4,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-003",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise referrer-policy. Evidence: referrer-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "765dc430-92eb-430c-b91e-687af4549853",
+            "riskScore": 2.4,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-003",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise referrer-policy. Evidence: referrer-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "ed671e98-9da2-4a13-bd26-54efa3c08d14",
+            "riskScore": 2.4,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-003",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise referrer-policy. Evidence: referrer-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/api/users/1"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "df025500-736f-4a0d-a03f-fb467a9c1714",
+            "riskScore": 2.4,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-003",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise referrer-policy. Evidence: referrer-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "4ab06c36-e1a3-46f4-b8f2-84ba92d4f048",
+            "riskScore": 2.4,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-004",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise permissions-policy. Evidence: permissions-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "b4677ed0-1e57-4185-b6e6-2b5bd9f79781",
+            "riskScore": 2.33,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-004",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise permissions-policy. Evidence: permissions-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "aad4f50c-930c-4f88-a9b8-ccd040e14bcc",
+            "riskScore": 2.33,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-004",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise permissions-policy. Evidence: permissions-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "fe63020d-cfe2-4798-a0d7-653c83e42364",
+            "riskScore": 2.33,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-004",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise permissions-policy. Evidence: permissions-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/api/users/1"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "22856f21-b156-4270-a046-99667d2eefbb",
+            "riskScore": 2.33,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-004",
+          "level": "note",
+          "message": {
+            "text": "The response does not advertise permissions-policy. Evidence: permissions-policy was absent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "bc641c30-ba51-48c2-9a80-1543c8b9a983",
+            "riskScore": 2.33,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-GQL-001",
+          "level": "note",
+          "message": {
+            "text": "A GraphQL endpoint appears to be exposed. Evidence: GraphQL-like URL discovered: http://127.0.0.1:8771/graphql"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/graphql"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "fb3709d7-d46d-4934-a72b-5ed2d00968ba",
+            "riskScore": 0.49,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-007",
+          "level": "note",
+          "message": {
+            "text": "Response headers reveal server/framework details. Evidence: Disclosed: {'server': 'uvicorn'}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "b79005e3-49cd-4607-8b6b-6990016016bb",
+            "riskScore": 0.46,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-007",
+          "level": "note",
+          "message": {
+            "text": "Response headers reveal server/framework details. Evidence: Disclosed: {'server': 'uvicorn'}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/set-cookie"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "7110a320-2f35-4aa8-9cca-36e7a8f50121",
+            "riskScore": 0.46,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-007",
+          "level": "note",
+          "message": {
+            "text": "Response headers reveal server/framework details. Evidence: Disclosed: {'server': 'uvicorn'}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/admin/panel"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "9acb125a-61c4-4fc6-9786-ab9972609764",
+            "riskScore": 0.46,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-007",
+          "level": "note",
+          "message": {
+            "text": "Response headers reveal server/framework details. Evidence: Disclosed: {'server': 'uvicorn'}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/api/users/1"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "0eed038c-9750-4b39-a040-6e0eed5861bc",
+            "riskScore": 0.46,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-WEB-007",
+          "level": "note",
+          "message": {
+            "text": "Response headers reveal server/framework details. Evidence: Disclosed: {'server': 'uvicorn'}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/login"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "b96ba421-01a2-49ab-95d9-7eb757935972",
+            "riskScore": 0.46,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-SUPPLY-001",
+          "level": "note",
+          "message": {
+            "text": "One or more third-party scripts lack an integrity attribute in the observed markup. Evidence: 1 external script(s) without SRI observed."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "5b2f41a0-0cb3-4b97-a552-2abc0daf2720",
+            "riskScore": 0.4,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-FORM-002",
+          "level": "note",
+          "message": {
+            "text": "No commonly named CSRF token field was observed. This is a review candidate, not proof of a CSRF flaw. Evidence: No common CSRF token field name detected."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "be944a1f-f052-4740-b315-182195cd82f0",
+            "riskScore": 0.31,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-ISOLATION-001",
+          "level": "note",
+          "message": {
+            "text": "No Cross-Origin-Opener-Policy response header was observed on HTML. Evidence: Cross-Origin-Opener-Policy absent; applicability depends on app behavior."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "c0961b5c-39b9-41c5-a9b2-aa3b23c7298c",
+            "riskScore": 0.29,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        },
+        {
+          "ruleId": "FW-ISOLATION-002",
+          "level": "note",
+          "message": {
+            "text": "No Cross-Origin-Resource-Policy response header was observed on HTML. Evidence: Cross-Origin-Resource-Policy absent; no exploit inferred."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "http://127.0.0.1:8771/"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "findingId": "6c9487f6-a993-4892-b551-4f08a49aa9ac",
+            "riskScore": 0.28,
+            "status": "open",
+            "target": "http://127.0.0.1:8771/"
+          }
+        }
+      ],
+      "properties": {
+        "scanId": "2dcb3b0f-7c84-498f-9eeb-efcfa9a02bb5",
+        "target": "http://127.0.0.1:8771/"
+      }
+    }
+  ]
+}
